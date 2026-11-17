@@ -1,0 +1,92 @@
+/* Luxury custom animation rules */
+
+@keyframes pulseGoldGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 12px rgba(197, 164, 109, 0.45));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 28px rgba(240, 213, 163, 0.9));
+    transform: scale(1.025);
+  }
+}
+
+.animate-gold-glow {
+  animation: pulseGoldGlow 3.5s ease-in-out infinite;
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1.5deg);
+  }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 30s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spinSlow 22s linear infinite reverse;
+}
+
+/* Light sweep animation across golden text and borders */
+@keyframes lightSweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-light-sweep {
+  background: linear-gradient(
+    110deg,
+    #C5A46D 0%,
+    #DEC190 25%,
+    #FFF8EB 50%,
+    #DEC190 75%,
+    #C5A46D 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: lightSweep 4.5s ease-in-out infinite;
+}
+
+/* Navigation link active underline */
+.nav-link-hover {
+  position: relative;
+}
+
+.nav-link-hover::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: #C5A46D;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-hover:hover::after,
+.nav-link-hover.active::after {
+  width: 100%;
+}
